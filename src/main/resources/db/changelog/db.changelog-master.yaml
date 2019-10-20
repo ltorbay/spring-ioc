@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - preConditions:
+      - runningAs:
+          username: SA
+
+  - changeSet:
+      id: 1
+      author: ltorbay
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: username
+                  value: ltorbay
+              - column:
+                  name: email
+                  value: louistorbay@gmail.com
